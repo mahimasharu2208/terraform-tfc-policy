@@ -13,6 +13,11 @@ provider "aws" {
 
 resource "aws_s3_bucket" "test" {
   bucket = "tfc-lab-demo-bucket-${random_pet.this.id}"
+
+  tags = {
+      Name        = "my-example-bucket"
+      Environment = "dev"
+  }
 }
 
 resource "random_pet" "this" {}
